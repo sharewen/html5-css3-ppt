@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3边框</title>
+<style type="text/css">
+.bgSize
+{
+	background:url(img_flwr.gif);
+	background-size:80px 60px;
+	background-repeat:no-repeat;
+	padding-top:40px;
+}
+#div1,#div2
+{
+	border:15px solid black;
+	padding:35px;
+	background-image:url('border.png');
+	background-repeat:no-repeat;
+	background-position:left;
+}
+#div1
+{
+	background-origin:border-box;
+}
+#div2
+{
+	background-origin:content-box;
+}
+
+#grad1 {
+    height: 200px;
+    background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
+    background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,1));/*opacity*/
+    background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, red, blue); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, red , blue); /* 标准的语法（必须放在最后） */
+
+}
+#grad2 {
+    height: 150px;
+    width: 200px;
+    background: -webkit-radial-gradient(red, green, blue); /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(red, green, blue); /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(red, green, blue); /* Firefox 3.6 - 15 */
+    background: radial-gradient(red, green, blue); /* 标准的语法（必须放在最后） */
+}
+#shadow{
+ text-shadow: 5px 5px 5px #FF0000;
+}
+</style>
+</head>
+<body>
+	<h3>background</h3>
+    <div>原始图片：<img src="img_flwr.gif" alt="Flowers" width="224" height="162"></div>
+    <br>
+    <p class="bgSize">background-size</p>
+
+	<p>background-origin:border-box:</p>
+	<div id="div1">
+		border-box 背景被裁剪到边框盒。
+		padding-box 背景被裁剪到内边距框。
+		content-box; 背景被裁剪到内容框。
+
+	</div>
+
+	<p>background-origin:content-box:</p>
+	<div id="div2">
+		border-box 背景被裁剪到边框盒。
+		padding-box 背景被裁剪到内边距框。
+		content-box; 背景被裁剪到内容框。
+	</div>
+
+	<h3>线性渐变 - 从左到右</h3>
+	<p>从左边开始的线性渐变。起点是红色，慢慢过渡到蓝色：</p>
+
+	<div id="grad1"></div>
+
+	<h3>径向渐变 - 颜色结点均匀分布</h3>
+	<div id="grad2"></div>
+
+	<p>text 文本 </p>
+	<div id="shadow">阴影文字</div>
+	<div style="width:50px;background:red;">testtesttesttesttesttesttest</div>
+	<div style="width:50px;word-wrap:break-word;background:blue;margin-top:10px;">testtesttesttesttesttesttest</div>
+</body>
+</html>

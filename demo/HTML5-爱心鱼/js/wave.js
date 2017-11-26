@@ -1,0 +1,49 @@
+// 圆圈特效
+var waveObj=function(){
+	this.x=[];
+	this.y=[];
+	this.alive=[];
+	this.r=[];
+}
+waveObj.prototype.num=10;
+waveObj.prototype.init=function(){
+	for(var i=0;i<this.num;i++){
+		this.alive[i]=false;
+		this.r[i]=0;
+	}
+}
+waveObj.prototype.draw=function(){
+	ctx1.save();
+	ctx1.lineWidth=1;
+	ctx1.shadowBlur=10;
+	ctx1.shadowColor="white";
+	for(var i=0;i<this.num;i++){
+		if(this.alive[i]){
+			this.r[i]+=deltaTime*0.05;
+			if(this.r[i]>60){
+				this.alive[i]=false;
+				break;//跳出本次循环
+			}
+			var alpha=1-this.r[i]/60; //[0,1]
+			// draw canvas api arc
+			ctx1.beginPath();
+			ctx1.arc(this.x[i],this.y[i],this.r[i],0,Math.PI*2);
+			ctx1.closePath();
+			ctx1.strokeStyle="rgba(255,255,255,"+alpha+")"
+		}
+		ctx1.stroke();
+	}
+	ctx1.restore();
+}
+waveObj.prototype.born=function(x,y){
+	for(var i=0;i<this.num;i++){
+		if(!this.alive[i]){
+			// born
+			this.alive[i]=true;
+			this.r[i]=20;
+			this.x[i]=x;// 获取果实的坐标
+			this.y[i]=y;
+			return;// 找到就跳出循环
+		}
+	}
+}

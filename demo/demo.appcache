@@ -1,0 +1,12 @@
+CACHE MANIFEST
+CACHE:
+# 需要缓存的列表
+demo.css
+dog.jpg
+jquery.min.js
+
+
+
+NETWORK:
+# 不需要缓存的
+qq.jpg

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5语法</title>
+</head>
+<body>
+	
+<h3>Canvas标签--文本</h3>
+<canvas id="myCanvas" width="400" height="400" style="border: 1px solid red;">该浏览器不支持canvas对象</canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("myCanvas");
+// ctx 获取画布上下文对象
+var ctx=canvas.getContext('2d');
+	
+	// 设置阴影
+	ctx.shadowOffsetX=13; //阴影水平偏移  正值表示向右延伸
+	ctx.shadowOffsetY=13;//阴影垂直偏移 正值表示向下
+	ctx.shadowBlur=1;  // 阴影羽化程度
+	ctx.shadowColor="rgba(0,0,0,0.5)";//阴影的颜色 alpha表示透明度
+
+    // 设置矩形
+    ctx.fillStyle='#33ccff';
+    ctx.fillRect(20,20,150,60);
+    // 设置文本
+    ctx.font="20px 宋体";
+    ctx.fillStyle='white';
+    ctx.globalAlpha='0.5';//透明度
+    ctx.fillText('HTML5+CSS3',50,50,100);
+    
+	ctx.font="30px Arial";
+    ctx.strokeText("Hello World",100,200);
+
+</script>
+
+</body>
+</html>

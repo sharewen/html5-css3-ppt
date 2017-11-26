@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3边框</title>
+<style type="text/css">
+.radius{border-radius: 4px; padding: 4px 10px;color:#fff;font-size:16px;background: #2BAD43;outline: none;border:none;}
+.imgRadius{    
+    border: 2px solid #adb0b1;
+    border-color: #4d5559;
+    border-radius: 22px;
+}
+.imgRadius:hover{
+  border-color: #f22c1a;
+}
+.shadow{
+    width:300px;
+    height:100px;
+    background-color:yellow;
+    box-shadow: 10px 10px 15px #888888;
+}
+
+#round
+{
+width: 60px;
+height: 60px;
+border-width:15px;
+-moz-border-image:url("border.png") 30 30 round; /* Firefox */
+-webkit-border-image:url("border.png") 30 30 round; /* Safari 和 Chrome */
+-o-border-image:url("border.png") 30 30 round; /* Opera */
+border-image:url("border.png") 30 30 round;
+}
+#stretch
+{
+ width: 100px;
+ height:50px;
+ border-width: 15px;
+-moz-border-image:url("border.png") 30 30 stretch; /* Firefox */
+-webkit-border-image:url("border.png") 30 30 stretch; /* Safari 和 Chrome */
+-o-border-image:url("border.png") 30 30 stretch; /* Opera */
+border-image:url("border.png") 30 30 stretch;
+}
+</style>
+</head>
+<body>
+	<p>border-radius 圆角矩形</p>
+     <input type="button" class="radius" value="提交" />
+     <p>QQ 图像</p>
+     <img  class="imgRadius" src="qq.jpg" width="40" height="40">
+
+     <p class="shadow">box-shadow 阴影</p>
+
+     <p>border-image</p>
+     <div id="round"><img src="qq.jpg" width="50" height="50"></div>
+
+      <p>border-image2</p>
+     <div id="stretch">在这里，图像被拉伸以填补该地区</div>
+<script type="text/javascript">
+    var s=document.getElementById("round");
+    
+
+</script>
+
+</body>
+</html>

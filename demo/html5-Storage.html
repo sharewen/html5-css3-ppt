@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 web存储 </title>
+</head>
+<body>
+	<h3>验证浏览器是否支持localStorage和sessionStorage</h3>
+	<p>数据以 键/值 对存在, web网页的数据只允许该网页访问使用</p>
+	<div id="result"></div>
+
+	<h3>sessionStorage 对象</h3>
+	<p>essionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。</p>
+</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			if(typeof(Storage) !=="undefined"){
+				console.log('浏览器支持');
+				//alert('浏览器支持Storage')
+			}else {
+				console.log('浏览器不支持Storage')
+				alert('浏览器不支持Storage')
+			}
+
+			// 设置localStotage
+			localStorage.lastName="wuli";
+			document.getElementById("result").innerHTML="LastName: "+localStorage.lastName;
+
+			sessionStorage.firstName="taotao";
+			document.getElementById("result").innerHTML +=" <br>firstName: "+sessionStorage.firstName;
+
+
+
+		//javascript	
+		localStorage.fresh = "fresh.org";   //设置一个键值 
+		var a = localStorage.fresh;   //获取键值
+		// javascript API
+		//清空storage 
+		localStorage.clear();
+		//设置一个键值 
+		localStorage.setItem("fresh2","fresh2.org");
+		//获取一个键值 
+		localStorage.getItem("fresh2"); 
+		localStorage.key(0); //获取指定下标的键的名称（如同Array）
+		localStorage.removeItem("fresh2.org");// 删除一个键值 
+
+
+
+		}
+
+		
+
+	</script>
+</html>

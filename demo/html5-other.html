@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5语法</title>
+</head>
+<body>
+	<form>
+		<input type="checkbox" checked /> <!--仅仅写上checked就可以了-->
+		<input type='text' />
+		<Input  tYpe=Radio /> <!--不分大小写-->
+		<input />
+	
+		<p>测试  <!--可省略的标签-->
+		<p>test
+	</form>
+
+	<!--标签介绍-->
+	<h3>Mark</h3>
+	<p>
+		Do not forget to buy <mark>milk</mark> today
+	</p>
+
+	<h3>progress</h3>
+	<progress max="100" value="85">
+		<span>85</span>%
+	</progress>
+
+	<h3>time</h3>
+	"发布日期"<!--给搜索引擎用的-->
+	<time datetime="2016-1-31T09:00">9:00</time>
+	"更新日期"
+	<time datetime="2016-1-31T09:00z" pubdate>9:00</time>
+
+<H3>detail 元素</H3>
+	<details open>
+		<summary>HTML5</summary>
+		<ul>
+			<li>canvas</li>
+			<li>svg</li>
+			<li>svg</li>
+			<li>svg</li>
+		</ul>	
+	</details>
+
+<h3>datalist元素</h3>
+<input id="myCar" list="cars" />
+<datalist id="cars">
+  <option value="BMW">
+  <option value="Ford">
+  <option value="Volvo">
+</datalist>
+<br>
+
+<h3>Canvas标签</h3>
+<canvas id="myCanvas" width="200px" height="200px" style="border: 1px solid red;">该浏览器不支持canvas对象</canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("myCanvas");
+// ctx 获取画布上下文对象
+var ctx=canvas.getContext('2d');
+
+ //开始一个新的绘制路径
+	ctx.beginPath();
+	//设置弧线的颜色为蓝色
+    ctx.strokeStyle = "blue";
+    var circle = {
+        x : 100,    //圆心的x轴坐标值
+        y : 100,    //圆心的y轴坐标值
+        r : 50      //圆的半径
+    };
+    //沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线
+    ctx.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI, false);    
+    //按照指定的路径绘制弧线
+    ctx.stroke();
+</script>
+
+<h3>wbr</h3>
+<p>wbrwebwebwebwebwebwbe.....如果页面不够宽的话 <wbr></wbr>wbrwbrwbrwbr就会换行</p>
+<p>wbrwebwebwebwebwebwbe.....如果页面不够宽的话 wbrwbrwbr就会换行</p>
+
+<h3>detail元素</h3>
+<detail>
+	<summary>HTML5</summary>
+	For the latest updates from the HTML....
+</detail>
+
+<!---
+增加标签：
+1、结构标签
+（1）section：独立内容区块，可以用h1~h6组成大纲，表示文档结构，也可以有章节、页眉、页脚或页眉的其他部分；
+（2）article：特殊独立区块，表示这篇页眉中的核心内容；
+（3）aside：标签内容之外与标签内容相关的辅助信息；
+（4）header：某个区块的头部信息/标题；
+（5）hgroup：头部信息/标题的补充内容；
+（6）footer：底部信息；
+（7）nav
+（8）figure：独立的单元，例如某个有图片与内容的新闻块。
+2、表单标签
+（1）email：必须输入邮件；
+（2）url：必须输入url地址；
+（3）number：必须输入数值；
+（4）range：必须输入一定范围内的数值；
+（5）Date Pickers：日期选择器；
+a.date：选取日、月、年
+b.month：选取月、年
+c.week：选取周和年
+d.time：选取时间（小时和分钟）
+e.datetime：选取时间、日、月、年（UTC时间）
+f.datetime-local：选取时间、日、月、年（本地时间）
+（6）search：搜索常规的文本域；
+（7）color
+3、媒体标签
+（1）video：视频
+（2）audio：音频
+（3）embed：嵌入内容（包括各种媒体），Midi、Wav、AU、MP3、Flash、AIFF等。
+4、其他功能标签
+（1）mark：标注（像荧光笔做笔记）
+（2）progress：进度条；<progress max="最大进度条的值" value="当前进度条的值">
+（3）time：数据标签，给搜索引擎使用；发布日期<time datetime="2014-12-25T09:00">9：00</time>
+　　　　　　　　　　　　　　　　　　　更新日期<time datetime="2015-01-23T04:00" pubdate>4:00</time>
+（4）ruby和rt：对某一个字进行注释；<ruby><rt>注释内容</rt><rp>浏览器不支持时如何显示</rp></ruby>
+（5）wbr：软换行，页面宽度到需要换行时换行；
+（6）canvas：使用JS代码做内容进行图像绘制；
+（7）command：按钮；
+（8）deteils ：展开菜单；
+（9）dateilst：文本域下拉提示；
+（10）keygen:加密；
+-->
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype heml>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Full Screen</title>
+<style type="text/css">
+button, .button, .pagination a, .actions a, .green-button, #comment-form input[type='submit'] {
+    background: #f9f9f9;
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #eee;
+    margin: 0 10px 0 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: #07a;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div style="padding:20px;">
+    <button onclick="launchFullscreen(document.documentElement);" class="sexyButton">Launch Fullscreen</button>
+    <button onclick="exitFullscreen();" class="sexyButton">Hide Fullscreen</button>
+  </div>
+	
+</body>
+<script type="text/javascript">
+	// 找到适合浏览器的全屏方法  
+	function launchFullscreen(element) {  
+	  if(element.requestFullScreen) {  
+	    element.requestFullScreen();  
+	  } else if(element.mozRequestFullScreen) {  
+	    element.mozRequestFullScreen();  
+	  } else if(element.webkitRequestFullScreen) {  
+	    element.webkitRequestFullScreen();  
+	  }  
+	}  
+	  function exitFullscreen() {
+		  if(document.exitFullscreen) {
+		    document.exitFullscreen();
+		  } else if(document.mozCancelFullScreen) {
+		    document.mozCancelFullScreen();
+		  } else if(document.webkitExitFullscreen) {
+		    document.webkitExitFullscreen();
+		  }
+		}
+
+		// Events
+	document.addEventListener("fullscreenchange", function(e) {
+	  console.log("fullscreenchange event! ", e);
+	});
+	document.addEventListener("mozfullscreenchange", function(e) {
+	  console.log("mozfullscreenchange event! ", e);
+	});
+	document.addEventListener("webkitfullscreenchange", function(e) {
+	  console.log("webkitfullscreenchange event! ", e);
+	});
+	document.addEventListener("msfullscreenchange", function(e) {
+	  console.log("msfullscreenchange event! ", e);
+	});
+ 
+
+	</script>
+	
+
+
+</html>

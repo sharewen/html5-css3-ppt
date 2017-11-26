@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5-canvas-gradient</title>
+</head>
+<body>
+	
+<h3>Canvas标签--渐变</h3>
+<canvas id="myCanvas" width="400" height="400" style="border: 1px solid red;">该浏览器不支持canvas对象</canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("myCanvas");
+// ctx 获取画布上下文对象
+var ctx=canvas.getContext('2d');
+	
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"blue");
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+
+// demo2
+ctx.translate(100,100);
+// Create gradient
+var grd2=ctx.createRadialGradient(75,50,5,90,60,100);
+grd2.addColorStop(0,"red");
+grd2.addColorStop(1,"blue");
+
+// Fill with gradient
+ctx.fillStyle=grd2;
+ctx.fillRect(10,10,150,80);;
+
+</script>
+
+</body>
+</html>

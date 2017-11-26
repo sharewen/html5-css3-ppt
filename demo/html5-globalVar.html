@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>New Attrs</title>
+<link rel="stylesheet" type="text/css" href="demo.css">
+<link rel="icon" type="image/gif" href="demo_icon.gif" sizes="16*16">
+</head>
+<body>
+<a media="handheld" href="#">手势</a>
+<a media="tv" href="#">电视</a>
+<a href="http://elearning.bankcomm.com" hreflang="zh" ref="external"></a>
+
+<!-- 有序列表	倒叙排列-->
+<ol start="50" reversed>
+	<li>Coffee1</li>
+	<li>Coffee2</li>
+	<li>Coffee3</li>
+</ol>
+
+<h1>全局属性</h1>
+<SCRIPT TYPE="text/javascript">
+	window.document.designMode="off";// on
+</SCRIPT>
+<form data-type="comment" class="container">
+	<h3>留言板</h3>
+	<label hidden>看见了吗？</label>
+	<p><label>
+		<span>姓名</span>
+		<input tabindex="1" />
+	</label></p>
+
+	<p><label>
+		<span>邮件</span>	
+		<input tabindex="3" />
+	</label></p>
+
+	<p><label>
+		<span>留言</span>
+		<textarea tabindex="2" spellcheck="true" cols="60" rows="5"></textarea>
+	</label></p>
+
+	<table contenteditable="true">
+		<tr>
+			<td>数据1</td>
+			<td>数据2</td>
+		</tr>
+	</table>
+	<p contenteditable="true">请您留言</p>
+
+</form>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas--save/restore</title>
+</head>
+<body>
+	<canvas id="canvas" style="border:solid 1px #000;" width="700" height="700">不支持</canvas>
+		<script type="text/javascript">
+		function drawTop(cxt,fillStyle){
+			cxt.fillStyle=fillStyle;
+			cxt.beginPath();
+			// cxt.translate(80,80);
+			cxt.arc(0,0, 30,0,Math.PI,true);// 顺时针 半圆
+			cxt.closePath();
+			cxt.fill();
+		}
+		function drawGrip(cxt){
+			cxt.save();
+			// cxt.translate(80,80);
+			cxt.fillStyle="blue";
+			cxt.fillRect(-1.5,0,1.5,40);
+			cxt.beginPath();
+			cxt.strokeStyle="blue";
+			cxt.arc(-5,40,4,4,Math.PI*2,true);
+			cxt.stroke();
+			cxt.closePath();
+			cxt.restore();
+		}
+
+		function draw(){
+		var cxt=document.getElementById("canvas").getContext("2d");
+			cxt.translate(80,80);// 所有的移动都是基于这一上下文
+			for(var i=0;i<9;i++){
+				cxt.save();
+				cxt.translate(60*i,0);
+				drawTop(cxt,"rgb("+(30*i)+","+(255-30*i)+",255)");
+				drawGrip(cxt);
+				cxt.restore();
+			}
+
+		}
+		function drawRotate(){
+			var cxt=document.getElementById("canvas").getContext("2d");
+			cxt.translate(250,250);//
+			drawTop(cxt,"red");
+			drawGrip(cxt);
+			
+			for(var i=1;i<9;i++){
+				cxt.save();
+				cxt.rotate(Math.PI*(i/4));//旋转canvas上下文对象的空间坐标
+				// 移动旋转后的坐标点
+				cxt.translate(0,-150);
+				cxt.beginPath();
+				cxt.moveTo(0,0);
+				cxt.lineTo(0,100);
+				cxt.lineWidth=5;
+				cxt.strokeStyle="red";
+				cxt.stroke();
+				// debugger;
+				//更改 位置 (250,100)
+				drawTop(cxt,"rgb("+(30*i)+","+(255-30*i)+",255)");
+				drawGrip(cxt);
+				cxt.restore();//回到默认原点（250,250）
+			}
+
+		}
+
+		window.onload=function(){
+			// var cxt=document.getElementById("canvas").getContext("2d");
+			// drawTop(cxt,"blue");
+			// drawGrip(cxt);
+			 draw();
+			 drawRotate();
+		}
+
+		</script>
+</body>
+</html>

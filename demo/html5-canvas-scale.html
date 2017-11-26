@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas--scale</title>
+</head>
+<body>
+	<canvas id="canvas" style="border:solid 1px #000;" width="700" height="700">不支持</canvas>
+		<script type="text/javascript">
+		function draw(){
+		var cxt=document.getElementById("canvas").getContext("2d");
+			cxt.translate(200,200);// 所有的移动都是基于这一上下文
+			for(var i=0;i<80;i++){
+				cxt.save();
+				// debugger;
+				cxt.translate(30,30);
+				cxt.scale(0.95,0.95);
+				cxt.rotate(Math.PI/12);
+				cxt.beginPath();
+				cxt.fillStyle="red";
+				cxt.globalAlpha="0.4";
+				cxt.arc(0,0,50,0,Math.PI*2,true);
+				cxt.closePath();
+				cxt.fill();
+
+				// cxt.restore();
+			}
+
+		}
+		window.onload=function(){
+			 draw();
+		}
+
+		</script>
+</body>
+</html>

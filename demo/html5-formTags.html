@@ -1,0 +1,83 @@
+<!doctype heml>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新增的媒体标签</title>
+</head>
+<body>
+	<form action="a.php" method="get">
+	<p>HTML5 input 新增属性--autofocus</p>
+		<input type="text" autofocus id="search2" />
+		<input type="text" autofocus id="search1" />
+	<p>HTML5 input 新增属性-placeholder</p>
+	<input type="text" id="userName" value="" name="userName" placeholder="请输入用户名" />
+	<input type="text" id="user" value="请输入用户名" name="user"/>
+
+	<p>HTML5 input 新增属性-required必填字段</p>
+		<input type="text" name="need" required />
+
+		<p>HTML5 input 新增属性--multiple 支持多选</p>
+		<input type="file" multiple="multiple" value="多选" />
+		<p>HTML5 input 新增属性--multiple 支持多选</p>
+		<input type="file" multiple="false" value="单选"/>
+
+	<p>checked 选中 </p>
+		<input type="checkbox" checked="true" name="fruit" value="苹果"/>苹果 <!--仅仅写上checked就可以了-->
+		<input type="checkbox" checked name="fruit" value="香蕉"/>香蕉
+		<br>
+		<Input type="radio" name="sex" value="男" />男
+		<input tYpe=Radio  name="sex" checked value="女"/>女
+
+		<p>输入类型 - color：</p>
+			Color: <input type="color" name="user_color" /><br />
+
+		<p>日期和时间选择器</p>
+			Date: <input type="date" name="user_date" /><br>
+<!--
+	HTML5 拥有多个供选择日期和时间的新的输入类型：<br>
+	date - 选择日、月、年<br>
+	month - 选择月、年<br>
+	week - 选择周、年<br>
+	time - 选择时间（时、分）<br>
+	datetime - 选择时间、日期、月、年（UTC 时间）<br>
+	datetime-local - 选择时间、日期、月、年（本地时间）<br>
+-->
+
+	<p>输入类型 - email</p>
+	E-mail: <input type="email" name="user_email" /> <br>
+	注:iPhone 的 Safari 浏览器会识别 email 输入类型，然后改变触摸屏的键盘来适应它（添加 @ 和 .com 选项）。
+
+	<p>输入类型 - number</p>
+		Points: <input type="number" name="points" min="1" max="10" /><br>
+	<p>输入类型 - range</p>
+		<input type="range" name="points" min="1" max="10" step="1" value="2" /><br>
+	<p>输入类型 - url</p>
+		Homepage: <input type="url" name="user_url" /><br>
+
+		<p>提交按钮</p>
+		<input type="submit" value="提交">
+</form>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+
+		document.getElementById("search2").focus();
+
+		var ph=document.getElementById("user");
+		ph.style.color="#ccc";
+		ph.onfocus=function(){
+			if (ph.value =="请输入用户名") {
+				ph.value="";
+			};
+			
+		}
+		ph.onblur=function(){
+			if (ph.value =="") {
+				ph.value="请输入用户名";
+			};
+			
+		}
+
+	}
+	</script>
+</html>

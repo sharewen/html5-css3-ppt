@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 --transform</title>
+<style type="text/css">
+div#maincontent p {
+    margin: 20px 0;
+    line-height: 150%;
+}
+#rotate1, #rotatey1 {
+    border: 1px solid #000000;
+    background: red;
+    margin: 30px;
+    opacity: 0.7;
+}
+.animated_div {
+    width: 60px;
+    height: 40px;
+    color: #ffffff;
+    position: relative;
+    font-weight: bold;
+    padding: 20px 10px 0px 10px;
+    margin: 20px;
+    margin-right: 50px;
+    border: 1px solid #888888;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.buttonList input{
+    border:none;
+    color: #fff;
+    padding: 6px 8px;
+    background: #419AE0;
+    border-radius: 4px;
+    margin-right: 20px;
+
+}
+</style>
+</head>
+<body>
+    <h3>2D 旋转rotate、平移translate、缩放scale、倾斜skew、组合方法matrix</h3>
+	<p id="rotate1" class="animated_div">2D</p>
+    <div class="buttonList">
+        <input type="button" onclick="rotateDIV()" value="rotate">
+        <input type="button" onclick="translateDIV()" value="translate">
+        <input type="button" onclick="scaleDIV()" value="scale">
+        <input type="button" onclick="skewDIV()" value="skew">
+        <input type="button" onclick="matrixDIV()" value="matrix">
+         <input type="button" onclick="matrixDIV2()" value="matrix--scale">
+    </div>
+
+    <p onclick="rotateYDIV()" id="rotatey1" class="animated_div">2D </p>
+    <div class="buttonList">
+        <input type="button" onclick="rotateYDIV()" value="rotateY">
+        <input type="button" onclick="translateYDIV()" value="translateY">
+    </div>
+
+</body>
+<script>
+
+var x,y,n=0,ny=0,rotINT,rotYINT,translateINT,dis=0;clickSwitch=1,flag=false;
+function rotateDIV()
+{
+    x=document.getElementById("rotate1")
+    clearInterval(rotINT)
+    rotINT=setInterval("startRotate()",10)
+}
+function translateDIV(){
+     x=document.getElementById("rotate1")
+     clearInterval(translateINT);
+     translateINT=setInterval("startTranslate()",10)
+   
+}
+function startTranslate(){ 
+    dis=dis+clickSwitch;
+    x.style.transform="translate(" + dis + "px)";
+    if (dis==100)
+        {
+            clickSwitch= clickSwitch ==1 ? -1 :1;
+            console.log(clickSwitch);
+            clearInterval(translateINT)  
+        }
+     if (dis==0){
+            clickSwitch= clickSwitch ==1 ? -1 :1;
+            console.log(clickSwitch);
+            clearInterval(translateINT)
+        }
+}
+function scaleDIV(){
+     x=document.getElementById("rotate1");
+     if(!flag){
+         x.style.transform= 'scale(2, 4)';
+         flag=true;
+     }else {
+          x.style.transform= 'scale(1, 1)';
+          flag=false;
+     }
+    
+}
+function skewDIV(){
+     x=document.getElementById("rotate1");
+     if(!flag){
+         x.style.transform= 'skew(30deg, 20deg)';
+         flag=true;
+     }else {
+          x.style.transform= 'skew(0deg, 0deg)';
+          flag=false;
+     }
+    
+}
+function matrixDIV(){
+     x=document.getElementById("rotate1");
+     x.style.transform='matrix(0.866,0.5,-0.5,0.866,20,20)';
+}
+function matrixDIV2(){
+  x=document.getElementById("rotate1");
+  // x.style.transformOrigin=("left top");
+  x.style.transform='matrix(2,0.5,-0.5,2,20,20)';
+  // 中心点为（-30，-20 ）即 x=-30 y=-20
+  // x' = ax+cy+e = 2*x-0.5y+20 =-60+0.5*20+20=30
+ //  y' = bx+dy+f = 0.5x+2y+20 =-15-40+20=-35
+
+
+}
+
+
+
+
+function rotateYDIV()
+{
+    y=document.getElementById("rotatey1")
+    clearInterval(rotYINT)
+    rotYINT=setInterval("startYRotate()",10)
+}
+function translateYDIV(){
+      y=document.getElementById("rotatey1");
+      y.style.transform="translate(20px,20px)";
+      y.style.webkitTransform="translate(20px,20px)";
+      y.style.OTransform="translate(20px,20px)";
+      y.style.MozTransform="translate(20px,20px)";
+}
+
+
+function startRotate(){
+    n=n+1
+    x.style.transform="rotate(" + n + "deg)"
+    x.style.webkitTransform="rotate(" + n + "deg)"
+    x.style.OTransform="rotate(" + n + "deg)"
+    x.style.MozTransform="rotate(" + n + "deg)"
+    if (n==180 || n==360){
+            clearInterval(rotINT)
+            if (n==360){n=0}
+        }
+}
+function startYRotate()
+{
+    ny=ny+1
+    y.style.transform="rotateY(" + ny + "deg)"
+    y.style.webkitTransform="rotateY(" + ny + "deg)"
+    y.style.OTransform="rotateY(" + ny + "deg)"
+    y.style.MozTransform="rotateY(" + ny + "deg)"
+    if (ny==180 || ny>=360)
+        {
+            clearInterval(rotYINT)
+            if (ny>=360){ny=0}
+        }
+}
+
+</script>
+</html>
